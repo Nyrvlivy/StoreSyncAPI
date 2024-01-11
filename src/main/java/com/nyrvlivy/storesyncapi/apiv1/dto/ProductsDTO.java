@@ -1,5 +1,6 @@
 package com.nyrvlivy.storesyncapi.apiv1.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 
 public class ProductsDTO {
     @JsonProperty(value = "id")
+    @JsonIgnore
     private Long id;
     @JsonProperty(value = "entity_id")
     private String entityId;

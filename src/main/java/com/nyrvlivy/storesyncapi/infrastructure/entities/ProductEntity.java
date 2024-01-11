@@ -35,5 +35,7 @@ public class ProductEntity {
     private String image;
     @Column(name = "creation_date")
     private LocalDateTime creationDate;
+    @Column(name = "last_update")
+    private LocalDateTime lastUpdate;
 
 }

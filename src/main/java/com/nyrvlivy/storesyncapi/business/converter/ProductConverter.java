@@ -22,6 +22,19 @@ public class ProductConverter {
                 .build();
     }
 
+    public ProductEntity toEntityUpdate(ProductEntity entity, ProductsDTO dto, String id) {
+        return ProductEntity.builder()
+                .id(id)
+                .title(dto.getTitle() != null ? dto.getTitle() : entity.getTitle())
+                .price(dto.getPrice() != null ? dto.getPrice() : entity.getPrice())
+                .category(dto.getCategory() != null ? dto.getCategory() : entity.getCategory())
+                .description(dto.getDescription() != null ? dto.getDescription() : entity.getDescription())
+                .image(dto.getImage() != null ? dto.getImage() : entity.getImage())
+                .creationDate(entity.getCreationDate())
+                .lastUpdate(LocalDateTime.now())
+                .build();
+    }
+
     public ProductsDTO toDTO(ProductEntity entity) {
         return ProductsDTO.builder()
                 .entityId(entity.getId())

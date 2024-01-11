@@ -18,7 +18,6 @@ public class StoreSyncAPIService {
 
     public List<ProductsDTO> getAllProducts() {
         try {
-
             List<ProductsDTO> dto = client.getProductList();
             dto.forEach(product -> {
                         Boolean result = productService.existsByTitle(product.getTitle());
@@ -27,7 +26,7 @@ public class StoreSyncAPIService {
                         }
                     }
             );
-            return productConverter.toListDTO(productService.getAllProducts());
+            return productService.getAllProducts();
         } catch (Exception e) {
             throw new RuntimeException("Error while getting and saving products to database");
         }
