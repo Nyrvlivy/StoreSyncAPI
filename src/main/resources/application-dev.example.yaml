@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase # Replace 'mydatabase' with your database name
+    username: myuser                                 # Replace 'myuser' with your database username
+    password: mypassword                             # Replace 'mypassword' with your database password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Consider using 'validate' or 'none' for production
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+
+server:
+  port: 8181 # Choose an appropriate port
+
+store-sync-api:
+  url: https://fakestoreapi.com/ # Replace with the actual URL of the Store Sync API
